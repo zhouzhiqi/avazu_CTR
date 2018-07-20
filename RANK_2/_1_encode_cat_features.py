@@ -11,6 +11,7 @@ import time
 from sklearn.externals.joblib import dump, load, Parallel, delayed
 import utils
 from utils import *
+import tarfile
 
 # 设定路径
 raw_data_path = utils.raw_data_path
