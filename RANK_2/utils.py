@@ -12,7 +12,7 @@ dtypes = {'id':np.uint64,'click':np.int8,'hour':np.int64,'C1':np.int32,'banner_p
          'C16':np.int32,'C17':np.int32,'C18':np.int32,'C19':np.int32,'C20':np.int32,'C21':np.int32,
          }
 ########### changed by zhou######################################
-sample_pct = .5
+sample_pct = 1.0
 tvh = 'N'  #以31号做为校验集， 用于生成最终预测
 xgb_n_trees = 300
 xgb_n_trees = 30 # changed by zhou
