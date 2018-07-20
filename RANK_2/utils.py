@@ -4,6 +4,7 @@ from sklearn.utils import check_random_state
 import time
 import sys
 from sklearn.externals.joblib import dump, load
+import tarfile
 #import matplotlib.pyplot as plt
 
 ############ changed by zhou#####################################
@@ -31,6 +32,10 @@ except ImportError:
             self.tmp_data_path = '../tmp_data/'
             self.train_name = 'minitrain'
             self.test_name = 'test'
+            self.fm_path = '../tools/libmf_2.01/'
+            self.ffm_path = '../tools/libffm/'
+            self.xgb_path = '../tools/libmf_2.01/'
+            self.vw_path = '../tools/vw_2017/vw '
 #实例化class
 FLAGS = flags()
 ###############################
@@ -42,10 +47,10 @@ train_name = FLAGS.train_name
 test_name = FLAGS.test_name
 
 #path to external binaries. Please see dependencies in the .pdf document
-fm_path = '../tools/libmf_2.01/'
-ffm_path = '../tools/libffm/'
-xgb_path = '../tools/libmf_2.01/'
-vw_path = '../tools/vw_2017/vw '
+fm_path = FLAGS.fm_path
+ffm_path = FLAGS.ffm_path
+xgb_path = FLAGS.xgb_path
+vw_path = FLAGS.vw_path
 
 
 try:
@@ -671,5 +676,9 @@ def generate_ffm_data_zhou(df, target, file_name):
         df.loc[:,c] = df.loc[:,c].map(lambda x:fields[c]+':'+str(x)+':1').values
     df.to_csv(file_name, mode='w',header=False, sep=' ',index=False)
 
+def to_tar(path, filename):
+    with tarfile.open(path + "{0}.tar.gz".format(filename),"w:gz") as tar:
+    print(filename)
+    tar.add(path + filename)
 
 # changed by zhou changed by zhou changed by zhou changed by zhou changed by zhou changed by zhou changed by zhou

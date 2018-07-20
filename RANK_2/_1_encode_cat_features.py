@@ -217,6 +217,7 @@ print( "to save t0 ...")
 print( t0.shape )
 # 保存处理好的t0
 dump(t0, tmp_data_path + 't0.joblib_dat')
+to_tar(tmp_data_path, 't0.joblib_dat')
 
 ###################################################################################################
 
@@ -271,7 +272,7 @@ t0tv_mx_save['click'] = t0.click.values
 t0tv_mx_save['day'] = t0.day.values
 t0tv_mx_save['site_id'] = t0.site_id.values
 dump(t0tv_mx_save, tmp_data_path + 't0tv_mx.joblib_dat')
-
+to_tar(tmp_data_path, 't0tv_mx.joblib_dat')
 ###############################################################################
 
 
@@ -357,3 +358,4 @@ t3a_save = {}
 t3a_save['t3a'] = t3a
 t3a_save['idx_base'] = idx_base  
 dump(t3a_save, utils.tmp_data_path + 't3a.joblib_dat')
+to_tar(tmp_data_path, 't3a.joblib_dat')
