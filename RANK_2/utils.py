@@ -678,7 +678,7 @@ def generate_ffm_data_zhou(df, target, file_name):
 
 def to_tar(path, filename):
     with tarfile.open(path + "{0}.tar.gz".format(filename),"w:gz") as tar:
-    print(filename)
-    tar.add(path + filename)
+        print(filename)
+        tar.add(path + filename)
 
 # changed by zhou changed by zhou changed by zhou changed by zhou changed by zhou changed by zhou changed by zhou
