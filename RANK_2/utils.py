@@ -4,7 +4,7 @@ from sklearn.utils import check_random_state
 import time
 import sys
 from sklearn.externals.joblib import dump, load
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 ############ changed by zhou#####################################
 dtypes = {'id':np.uint64,'click':np.int8,'hour':np.int64,'C1':np.int32,'banner_pos':np.int32,

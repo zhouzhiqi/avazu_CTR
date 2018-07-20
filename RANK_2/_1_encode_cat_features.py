@@ -7,7 +7,7 @@ import pylab
 import sys
 import time
 #sys.path.append('/home/zzhang/Downloads/xgboost/wrapper')
-import xgboost as xgb
+#import xgboost as xgb
 from sklearn.externals.joblib import dump, load, Parallel, delayed
 import utils
 from utils import *
