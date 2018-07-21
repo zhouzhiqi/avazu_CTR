@@ -36,6 +36,7 @@ except ImportError:
             self.ffm_path = '../tools/libffm/'
             self.xgb_path = '../tools/libmf_2.01/'
             self.vw_path = '../tools/vw_2017/vw '
+            self.is_tar = False
 #实例化class
 FLAGS = flags()
 ###############################
@@ -45,6 +46,7 @@ raw_data_path = FLAGS.raw_data_path
 tmp_data_path = FLAGS.tmp_data_path
 train_name = FLAGS.train_name
 test_name = FLAGS.test_name
+is_tar = FLAGS.is_tar
 
 #path to external binaries. Please see dependencies in the .pdf document
 fm_path = FLAGS.fm_path
