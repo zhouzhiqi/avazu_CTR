@@ -55,7 +55,7 @@ vns['all_but_ip'] = ['app_or_web', 'device_conn_type', 'C18', 'device_type',
 # 生成fm的命令行参数
 #cmd_str = utils.fm_path + ' -t 4 -s 8 -l 1e-5 {0}_tmp_2way_v.txt {0}_tmp_2way_t.txt'
 # changed by zhou changed by zhou changed by zhou changed by zhou changed by zhou changed by zhou
-path1 = utils.tmp_data_path
+path1 = os.path.abspath(utils.tmp_data_path) + '/'
 if utils.ffm: 
     is_ffm = 'FFM_'
     cmd_str = utils.ffm_path + 'ffm-train -t 4 -s 8 -l 1e-5 -p {0}_tmp_2way_v.txt  {0}_tmp_2way_t.txt {0}_tmp_2way_t.model'.format(path1)
