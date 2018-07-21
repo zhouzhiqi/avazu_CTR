@@ -46,7 +46,7 @@ raw_data_path = FLAGS.raw_data_path
 tmp_data_path = FLAGS.tmp_data_path
 train_name = FLAGS.train_name
 test_name = FLAGS.test_name
-is_tar = FLAGS.is_tar
+is_tar = True
 
 #path to external binaries. Please see dependencies in the .pdf document
 fm_path = FLAGS.fm_path

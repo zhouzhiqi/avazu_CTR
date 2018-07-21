@@ -16,7 +16,7 @@ from sklearn.externals.joblib import dump, load
 file_list = ['ffm-train','ffm-predict']
 for f in file_list:
     shutil.copyfile(utils.ffm_path + f, utils.tmp_data_path + f)
-    os.system('chmod 777 {0}'.format(utils.ffm_path + f))
+    os.system('chmod 777 {0}'.format(utils.tmp_data_path + f))
 
 # 导入事先保存的从t0中取出部分列
 t0tv_mx_save = load(utils.tmp_data_path + 't0tv_mx.joblib_dat')
@@ -58,12 +58,12 @@ vns['all_but_ip'] = ['app_or_web', 'device_conn_type', 'C18', 'device_type',
 path1 = os.path.abspath(utils.tmp_data_path) + '/'
 if utils.ffm: 
     is_ffm = 'FFM_'
-    cmd_str = utils.ffm_path + 'ffm-train -t 4 -s 8 -l 1e-5 -p {0}_tmp_2way_v.txt  {0}_tmp_2way_t.txt {0}_tmp_2way_t.model'.format(path1)
-    cmd_str_pdt = utils.ffm_path + 'ffm-predict {0}_tmp_2way_v.txt {0}_tmp_2way_t.model {0}_tmp_2way_v.txt.out'.format(path1)
+    cmd_str = utils.tmp_data_path + 'ffm-train -t 4 -s 8 -l 1e-5 -p {0}_tmp_2way_v.txt  {0}_tmp_2way_t.txt {0}_tmp_2way_t.model'.format(path1)
+    cmd_str_pdt = utils.tmp_data_path + 'ffm-predict {0}_tmp_2way_v.txt {0}_tmp_2way_t.model {0}_tmp_2way_v.txt.out'.format(path1)
 else: 
     is_ffm = 'fm_'
-    cmd_str = utils.fm_path + 'mf-train -t 6  -s 8  -f 5 -p {0}_tmp_2way_v.txt {0}_tmp_2way_t.txt {0}_tmp_2way_t.model'.format(path1)
-    cmd_str_pdt = utils.fm_path + 'mf-predict -e 5 {0}_tmp_2way_v.txt {0}_tmp_2way_t.model {0}_tmp_2way_v.txt.out'.format(path1)
+    cmd_str = utils.tmp_data_path + 'mf-train -t 6  -s 8  -f 5 -p {0}_tmp_2way_v.txt {0}_tmp_2way_t.txt {0}_tmp_2way_t.model'.format(path1)
+    cmd_str_pdt = utils.tmp_data_path + 'mf-predict -e 5 {0}_tmp_2way_v.txt {0}_tmp_2way_t.model {0}_tmp_2way_v.txt.out'.format(path1)
 # changed by zhou changed by zhou changed by zhou changed by zhou changed by zhou changed by zhou
 
 # 起始日期与终止日期
