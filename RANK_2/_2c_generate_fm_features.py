@@ -53,16 +53,17 @@ vns['all_but_ip'] = ['app_or_web', 'device_conn_type', 'C18', 'device_type',
        '_A_C21', '_A_C20', '_A_C17', '_A_C14', 'as_model', 'dev_id2plus']
 
 # 生成fm的命令行参数
-#cmd_str = utils.fm_path + ' -t 4 -s 8 -l 1e-5 /dev/shm/_tmp_2way_v.txt /dev/shm/_tmp_2way_t.txt'
+#cmd_str = utils.fm_path + ' -t 4 -s 8 -l 1e-5 {0}_tmp_2way_v.txt {0}_tmp_2way_t.txt'
 # changed by zhou changed by zhou changed by zhou changed by zhou changed by zhou changed by zhou
+path1 = utils.tmp_data_path
 if utils.ffm: 
     is_ffm = 'FFM_'
-    cmd_str = utils.ffm_path + 'ffm-train -t 4 -s 8 -l 1e-5 -p /dev/shm/_tmp_2way_v.txt  /dev/shm/_tmp_2way_t.txt /dev/shm/_tmp_2way_t.model'
-    cmd_str_pdt = utils.ffm_path + 'ffm-predict /dev/shm/_tmp_2way_v.txt /dev/shm/_tmp_2way_t.model /dev/shm/_tmp_2way_v.txt.out'
+    cmd_str = utils.ffm_path + 'ffm-train -t 4 -s 8 -l 1e-5 -p {0}_tmp_2way_v.txt  {0}_tmp_2way_t.txt {0}_tmp_2way_t.model'.format(path1)
+    cmd_str_pdt = utils.ffm_path + 'ffm-predict {0}_tmp_2way_v.txt {0}_tmp_2way_t.model {0}_tmp_2way_v.txt.out'.format(path1)
 else: 
     is_ffm = 'fm_'
-    cmd_str = utils.fm_path + 'mf-train -t 6  -s 8  -f 5 -p /dev/shm/_tmp_2way_v.txt /dev/shm/_tmp_2way_t.txt /dev/shm/_tmp_2way_t.model'
-    cmd_str_pdt = utils.fm_path + 'mf-predict -e 5 /dev/shm/_tmp_2way_v.txt /dev/shm/_tmp_2way_t.model /dev/shm/_tmp_2way_v.txt.out'
+    cmd_str = utils.fm_path + 'mf-train -t 6  -s 8  -f 5 -p {0}_tmp_2way_v.txt {0}_tmp_2way_t.txt {0}_tmp_2way_t.model'.format(path1)
+    cmd_str_pdt = utils.fm_path + 'mf-predict -e 5 {0}_tmp_2way_v.txt {0}_tmp_2way_t.model {0}_tmp_2way_v.txt.out'.format(path1)
 # changed by zhou changed by zhou changed by zhou changed by zhou changed by zhou changed by zhou
 
 # 起始日期与终止日期
@@ -92,7 +93,7 @@ for day_v in range(day_bgn, day_end):
             #print ('-'* 5, vn, idx_base)
         
         # 生成待保存的文件名
-        path1 = '/dev/shm/'
+        
         fn_t = path1 + '_tmp_2way_t.txt'
         fn_v = path1 + '_tmp_2way_v.txt'
         
