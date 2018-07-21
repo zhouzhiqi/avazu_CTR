@@ -16,7 +16,7 @@ from sklearn.externals.joblib import dump, load
 file_list = ['ffm-train','ffm-predict']
 for f in file_list:
     shutil.copyfile(utils.ffm_path + f, utils.tmp_data_path + f)
-    os.system('chmod 777 ', utils.ffm_path + f)
+    os.system('chmod 777 {0}'.format(utils.ffm_path + f))
 
 # 导入事先保存的从t0中取出部分列
 t0tv_mx_save = load(utils.tmp_data_path + 't0tv_mx.joblib_dat')
