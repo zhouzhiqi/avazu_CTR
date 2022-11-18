@@ -29,7 +29,26 @@ class DataUtils(object):
             if extension=='.gz':  #如果后缀名为'.gz', 则解压到data_path
                 # 打开'*.tar.gz'文件, 
                 with tarfile.open(data_path + file_name, 'r:gz') as tar: 
-                    tar.extractall(data_path)  #解压到data_path
+                    def is_within_directory(directory, target):
+                        
+                        abs_directory = os.path.abspath(directory)
+                        abs_target = os.path.abspath(target)
+                    
+                        prefix = os.path.commonprefix([abs_directory, abs_target])
+                        
+                        return prefix == abs_directory
+                    
+                    def safe_extract(tar, path=".", members=None, *, numeric_owner=False):
+                    
+                        for member in tar.getmembers():
+                            member_path = os.path.join(path, member.name)
+                            if not is_within_directory(path, member_path):
+                                raise Exception("Attempted Path Traversal in Tar File")
+                    
+                        tar.extractall(path, members, numeric_owner=numeric_owner) 
+                        
+                    
+                    safe_extract(tar, data_path)
 
     def LoadData(self, data_path, file_name, use_cols=None):
         """
